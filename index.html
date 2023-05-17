@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            font-family: 'Georgia', serif; 
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1, h2 {
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #poem {
+            font-style: italic;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❤ HOLA AMORCITO DE MI VIDA ANNI ❤</h1>
+        <p>Por favor, introduce la fecha en que me dijiste que si en aquella servilleta:</p>
+        <input id="password" type="text" placeholder="dd/mm/yyyy">
+        <button class="btn" onclick="checkPassword()">Ingresar</button>
+        <p id="error" style="color: yellow;"></p>
+        <div id="anniversary" style="display: none;">
+            <h2>☙ღ FELIZ ANIVERSARIO MI CHIQUITA HEREMOSA ANNI ღ❧</h2>
+            <h3>Nuestras fotos</h3>
+            <button class="btn" onclick="showMonth('February')">Febrero</button>
+            <button class="btn" onclick="showMonth('March')">Marzo</button>
+            <button class="btn" onclick="showMonth('April')">Abril</button>
+            <div id="photos"></div>
+            <p id="poem"></p>
+            <button class="btn" onclick="window.open('https://www.youtube.com/watch?v=KZh60U1PqSE&ab_channel=AxelVEVO')">Te Amo</button>
+        </div>
+    </div>
+    <script>
+        var poems = {
+            'February': 'Desde el primer dia en que te vi, supe que eras el amor de mi vida Anii',
+            'March': 'Despues de convertirte en el amor de mi vida, me hicite muy feliz, hasta que me dolio ver tu partida :/',
+            'April': 'No es facil para mi llevar una relacion a distancia, pero se que juntos podemos lograr si ambos le hechamos ganas a nuestra relacion',
+        };
+
+        function checkPassword() {
+            var password = document.getElementById('password').value;
+            if (password === '17/02/2023') {
+                document.getElementById('anniversary').style.display = 'block';
+                document.getElementById('error').style.display = 'none';
+            } else {
+                document.getElementById('error').innerHTML = '¿Cómo que no te acuerdas el día que me diste el sí en una servilleta? :/';
+            }
+        }
+
+        function showMonth(month) {
+            var photos = document.getElementById('photos');
+            photos.innerHTML = '';
+            var images = ['amor.jpeg', 'amorcito.jpeg', 'bart.jpeg']; // reemplaza esto con las imágenes reales
+            images.forEach(function(image) {
+                var img = document.createElement('img');
+                img.src = month + '/' + image;
+                photos.appendChild(img);
+            });
+
+            var poem = document.getElementById('poem');
+            poem.textContent = poems[month];
+        }
+    </script>
+</body>
+</html>
