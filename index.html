@@ -53,11 +53,9 @@
         <p id="error" style="color: yellow;"></p>
         <div id="anniversary" style="display: none;">
             <h2>☙ღ FELIZ ANIVERSARIO MI CHIQUITA HEREMOSA ANNI ღ❧</h2>
-            <h3>Nuestras fotos</h3>
-            <button class="btn" onclick="showMonth('February')">Febrero</button>
-            <button class="btn" onclick="showMonth('March')">Marzo</button>
-            <button class="btn" onclick="showMonth('April')">Abril</button>
-            <div id="photos"></div>
+            <button class="btn" onclick="window.open('https://i.imgur.com/tlSWFii.jpg')">Febrero</button>
+            <button class="btn" onclick="window.open('https://i.imgur.com/TRM1USv.jpg')">Marzo</button>
+            <button class="btn" onclick="window.open('https://i.imgur.com/lt7oW47.jpg')">Abril</button>
             <p id="poem"></p>
             <button class="btn" onclick="window.open('https://www.youtube.com/watch?v=KZh60U1PqSE&ab_channel=AxelVEVO')">Te Amo</button>
         </div>
@@ -73,22 +71,13 @@
             var password = document.getElementById('password').value;
             if (password === '17/02/2023') {
                 document.getElementById('anniversary').style.display = 'block';
-                document.getElementById('error').style.display = 'none';
+                document.getElementById('error').style.display ='none';
             } else {
                 document.getElementById('error').innerHTML = '¿Cómo que no te acuerdas el día que me diste el sí en una servilleta? :/';
             }
         }
 
-        function showMonth(month) {
-            var photos = document.getElementById('photos');
-            photos.innerHTML = '';
-            var images = ['amor.jpeg', 'amorcito.jpeg', 'bart.jpeg']; // reemplaza esto con las imágenes reales
-            images.forEach(function(image) {
-                var img = document.createElement('img');
-                img.src = month + '/' + image;
-                photos.appendChild(img);
-            });
-
+        function showPoem(month) {
             var poem = document.getElementById('poem');
             poem.textContent = poems[month];
         }
